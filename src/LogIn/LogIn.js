@@ -31,8 +31,8 @@ function LogIn({navigation}) {
     <SafeAreaView style={{flex: 1}}>
       <View style={logIn_items.container}>
         <Input
-          buttonTitle="User Name"
-          placeholder="Enter User Name..."
+          buttonTitle="Email Adress"
+          placeholder="Enter Email Adress..."
           onText={(userName) => checkEmailText(userName)}
           currentColor={emailValid ? '#0000' : 'red'}
         />

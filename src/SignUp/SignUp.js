@@ -52,8 +52,8 @@ function SignUp() {
           currentColor="#0000"
         />
         <Input
-          buttonTitle="User Name"
-          placeholder="Enter User Name..."
+          buttonTitle="Email Adress"
+          placeholder="Enter Email Adress..."
           onText={(userName) => checkEmailText(userName)}
           currentColor={emailValid ? '#0000' : 'red'}
         />
