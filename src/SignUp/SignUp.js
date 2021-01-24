@@ -1,49 +1,87 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
-import Label from "../globalComponents/Label";
-import MyButton from '../globalComponents/MyButton';
+import Label from '../globalComponents/Label';
+import SmallButton from '../globalComponents/SmallButton';
 
-import { logIn_items } from "../styles/Login_styles";
+import {logIn_items} from '../styles/Login_styles';
 function SignUp() {
-    return(
-        <SafeAreaView style={{flex:1}}>
-            <View style={logIn_items.container}>
-                <View>
-                    <Label
-                      myTitle = 'Name' 
-                      placeholder = 'Enter Your Name...' 
-                      onText = {(Name) => console.log(Name)}
-                    />
-                    <Label
-                      myTitle = 'Surname' 
-                      placeholder = 'Enter Your Surame...' 
-                      onText = {(Surname) => console.log(Surname)}
-                    />  
-                </View>
-                
-                <Label 
-                  myTitle = 'User Name' 
-                  placeholder = 'Enter User Name...' 
-                  onText = {(userName) => console.log(userName)}
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
+  const [emailValid, setEmailValid] = useState(1);
+  const [passwordValid, setPasswordValid] = useState(1);
+  const [passwordConfirmValid, setPasswordConfirmValid] = useState(1);
+  function checkEmailText(mailText) {
+    setEmail(mailText);
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (mailText.length == 0 || re.test(mailText.toLowerCase())) {
+      setEmailValid(1);
+    } else {
+      setEmailValid(0);
+    }
+  }
 
-                />  
-                <Label 
-                  secureTextEntry={true}
-                  myTitle = 'Password' 
-                  placeholder = 'Enter Password...' 
-                  onText = {(password) => console.log(password)}
-                />
-                <Label 
-                  secureTextEntry={true}
-                  myTitle = 'Confirm Password' 
-                  placeholder = 'Confirm...' 
-                  onText = {(password) => console.log(password)}
+  function checkPasswordText(passwordText) {
+    setPassword(passwordText);
+    if (passwordText.length == 0 || passwordText.length > 5) {
+      setPasswordValid(1);
+    } else {
+      setPasswordValid(0);
+    }
+    checkConfirmPassword(passwordRepeat, passwordText);
+  }
 
-                />  
-                <MyButton myTitle = 'Sign up' />
-            </View>
-        </SafeAreaView>
-    )
+  function checkConfirmPassword(passwordText, passwordToCompare) {
+    passwordText == passwordToCompare
+      ? setPasswordConfirmValid(1)
+      : setPasswordConfirmValid(0);
+  }
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={logIn_items.container}>
+        <View>
+          <Label
+            buttonTitle="Name"
+            placeholder="Enter Your Name..."
+            onText={(Name) => console.log(Name)}
+            currentColor="#0000"
+          />
+          <Label
+            buttonTitle="Surname"
+            placeholder="Enter Your Surame..."
+            onText={(Surname) => console.log(Surname)}
+            currentColor="#0000"
+          />
+        </View>
+
+        <Label
+          buttonTitle="User Name"
+          placeholder="Enter User Name..."
+          onText={(userName) => checkEmailText(userName)}
+          currentColor={emailValid ? '#0000' : 'red'}
+        />
+        <Label
+          secureTextEntry={true}
+          buttonTitle="Password"
+          placeholder="Enter Password..."
+          onText={(passwordText) => checkPasswordText(passwordText)}
+          currentColor={passwordValid ? '#0000' : 'red'}
+        />
+        <Label
+          secureTextEntry={true}
+          buttonTitle="Confirm Password"
+          placeholder="Confirm..."
+          onText={(passwordText) => {
+            setPasswordRepeat(passwordText);
+            checkConfirmPassword(passwordText, password);
+          }}
+          currentColor={passwordConfirmValid ? '#0000' : 'red'}
+        />
+        <SmallButton buttonTitle="Sign up" />
+      </View>
+    </SafeAreaView>
+  );
 }
 
 export {SignUp};
