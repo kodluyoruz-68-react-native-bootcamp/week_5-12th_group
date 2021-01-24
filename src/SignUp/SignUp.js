@@ -40,7 +40,6 @@ function SignUp() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={logIn_items.container}>
-        <View>
           <Label
             buttonTitle="Name"
             placeholder="Enter Your Name..."
@@ -53,8 +52,6 @@ function SignUp() {
             onText={(Surname) => console.log(Surname)}
             currentColor="#0000"
           />
-        </View>
-
         <Label
           buttonTitle="User Name"
           placeholder="Enter User Name..."
