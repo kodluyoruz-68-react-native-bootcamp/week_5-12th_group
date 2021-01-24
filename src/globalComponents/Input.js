@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
-import {label_style} from './styles/components_styles';
+import {input_style} from './styles/components_styles';
 
-function Label(props) {
+function Input(props) {
   return (
-    <View style={label_style.container}>
-      <View style={[label_style.inputContainer, {borderColor: props.currentColor, borderWidth: 1}]}>
-        <Text style={label_style.text}> {props.buttonTitle} </Text>
+    <View style={input_style.container}>
+      <View style={[input_style.inputContainer, {borderColor: props.currentColor, borderWidth: 1}]}>
+        <Text style={input_style.text}> {props.buttonTitle} </Text>
         <TextInput
           secureTextEntry={props.secureTextEntry}
           placeholder={props.placeholder}
@@ -17,4 +17,4 @@ function Label(props) {
     </View>
   );
 }
-export default Label;
+export {Input};

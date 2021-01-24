@@ -21,7 +21,7 @@ const button_style = StyleSheet.create({
     alignSelf: 'center',
   },
 });
-const label_style = StyleSheet.create({
+const input_style = StyleSheet.create({
   inputContainer: {
     backgroundColor: '#fcf8ec',
     padding: 10,
@@ -37,4 +37,4 @@ const label_style = StyleSheet.create({
   },
 });
 
-export {label_style,button_style};
+export {input_style,button_style};

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
-import Label from '../globalComponents/Label';
-import SmallButton from '../globalComponents/SmallButton';
+import {Input, SmallButton} from '../globalComponents';
 
 import {logIn_items} from '../styles/Login_styles';
 function SignUp() {
@@ -40,32 +39,32 @@ function SignUp() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={logIn_items.container}>
-          <Label
-            buttonTitle="Name"
-            placeholder="Enter Your Name..."
-            onText={(Name) => console.log(Name)}
-            currentColor="#0000"
-          />
-          <Label
-            buttonTitle="Surname"
-            placeholder="Enter Your Surame..."
-            onText={(Surname) => console.log(Surname)}
-            currentColor="#0000"
-          />
-        <Label
+        <Input
+          buttonTitle="Name"
+          placeholder="Enter Your Name..."
+          onText={(Name) => console.log(Name)}
+          currentColor="#0000"
+        />
+        <Input
+          buttonTitle="Surname"
+          placeholder="Enter Your Surame..."
+          onText={(Surname) => console.log(Surname)}
+          currentColor="#0000"
+        />
+        <Input
           buttonTitle="User Name"
           placeholder="Enter User Name..."
           onText={(userName) => checkEmailText(userName)}
           currentColor={emailValid ? '#0000' : 'red'}
         />
-        <Label
+        <Input
           secureTextEntry={true}
           buttonTitle="Password"
           placeholder="Enter Password..."
           onText={(passwordText) => checkPasswordText(passwordText)}
           currentColor={passwordValid ? '#0000' : 'red'}
         />
-        <Label
+        <Input
           secureTextEntry={true}
           buttonTitle="Confirm Password"
           placeholder="Confirm..."

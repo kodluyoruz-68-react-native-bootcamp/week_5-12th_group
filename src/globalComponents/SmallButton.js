@@ -15,4 +15,4 @@ function SmallButton(props) {
   );
 }
 
-export default SmallButton;
+export {SmallButton};

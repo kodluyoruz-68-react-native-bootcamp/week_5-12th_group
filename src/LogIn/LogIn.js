@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
-import Label from '../globalComponents/Label';
-import SmallButton from '../globalComponents/SmallButton';
+import {Input, SmallButton} from '../globalComponents';
 
 import {logIn_items} from '../styles/Login_styles';
 function LogIn({navigation}) {
@@ -31,13 +30,13 @@ function LogIn({navigation}) {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={logIn_items.container}>
-        <Label
+        <Input
           buttonTitle="User Name"
           placeholder="Enter User Name..."
           onText={(userName) => checkEmailText(userName)}
           currentColor={emailValid ? '#0000' : 'red'}
         />
-        <Label
+        <Input
           secureTextEntry={true}
           buttonTitle="Password"
           placeholder="User Password..."

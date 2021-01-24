@@ -1,2 +1,2 @@
 export * from './SmallButton';
-export * from './Label';
+export * from './Input';
