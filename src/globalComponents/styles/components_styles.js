@@ -15,6 +15,12 @@ const Button = StyleSheet.create({
         fontWeight:'bold'
         
     },
+    text_register:{
+        color:'#fcf8ec',
+    },
+    container_register:{
+        alignSelf:"center",
+    }
 })
 
 export {Button};

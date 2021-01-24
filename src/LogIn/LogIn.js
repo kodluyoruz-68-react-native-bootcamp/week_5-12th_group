@@ -22,6 +22,7 @@ function LogIn() {
                   onText = {(password) => console.log(password)}
                 />  
                 <MyButton myTitle = 'Log in'/>
+                <MyButton myTitle = 'Or sign up' isTrue = "true"/>
             </View>
         </SafeAreaView>
     )
