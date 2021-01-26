@@ -44,11 +44,6 @@ function LogIn({navigation}) {
     }
   }
 
-  if (response) {
-    //TODO: send something to login page using params and tell the user that they are registered
-    navigation.navigate('MainScreen');
-  }
-
   if (loading) {
     //TODO: maybe improve ActivityIndicator
     return (
@@ -57,6 +52,12 @@ function LogIn({navigation}) {
       </SafeAreaView>
     );
   }
+  
+  if (response) {
+    //TODO: send something to login page using params and tell the user that they are registered
+    navigation.navigate('MainScreen');
+  }
+
 
   if (error) {
     //TODO: handle register error
