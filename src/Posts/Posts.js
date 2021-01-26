@@ -24,14 +24,12 @@ function Posts(props) {
         if (!data) {
           return;
         }
-        console.log(Object.values(data));
         setPosts(Object.values(data));
       });
       database()
         .ref(`Users/${auth().currentUser.uid}`)
-        .on('value', (snapshot) => {
+        .once('value', (snapshot) => {
           const data = snapshot.val();
-          console.log(data);
           if (!data) {
             return;
           }
@@ -39,10 +37,35 @@ function Posts(props) {
         });
   }, []);
 
+  function hasProperty(arr, val) {
+    return arr.some((arrVal) => val === arrVal["time"]);
+  }
   function savePost(item) {
+    console.log("SAVED POST:", item);
+    let alreadySaved = false;
+    //check if exists
     database()
       .ref(`Users/${auth().currentUser.uid}/Posts`)
-      .push({time: item["time"], username: item["username"],text: item["text"]});
+      .once('value', (snapshot) => {
+        const data = snapshot.val();
+        if (!data) {
+          return;
+        }
+        if (hasProperty(Object.values(data), item["time"])) {
+          //TODO: indicate that the post is aleady saved
+          console.log(Object.values(data));
+          console.log("ALREADY SAVED!");
+          alreadySaved = true;
+        }
+      }).then(
+        () => {
+          if (!alreadySaved) {
+            database()
+              .ref(`Users/${auth().currentUser.uid}/Posts`)
+              .push({time: item["time"], username: item["username"],text: item["text"]});
+          }
+        }
+      );
   }
 
   function handlePostingRequest() {

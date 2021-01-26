@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {LogIn} from './LogIn/LogIn';
 import {SignUp} from './SignUp/SignUp';
 import {Posts} from './Posts/Posts'
+import {SavedPosts} from './SavedPosts/SavedPosts';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -14,6 +15,7 @@ function MainStack() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Posts" component={Posts} />
+      <Tab.Screen name="SavedPosts" component={SavedPosts} />
     </Tab.Navigator>
   );
 }
