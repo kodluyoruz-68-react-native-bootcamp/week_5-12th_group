@@ -12,6 +12,8 @@ function Input(props) {
           placeholder={props.placeholder}
           onChangeText={(value) => props.onText(value)}
           keyboardType={props.type}
+          autoCompleteType={props.fieldType}
+          keyboardType={props.fieldType=='email' ? 'email-address' : 'default'}
         />
       </View>
     </View>

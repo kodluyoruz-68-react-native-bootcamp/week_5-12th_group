@@ -37,4 +37,8 @@ const input_style = StyleSheet.create({
   },
 });
 
-export {input_style,button_style};
+const post_style = StyleSheet.create({
+  container: {},
+});
+
+export {input_style,button_style, post_style};
