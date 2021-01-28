@@ -12,6 +12,7 @@ import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 
 import { post_style } from "../globalComponents/styles";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 function Posts(props) {
   const [posts, setPosts] = useState([]);
