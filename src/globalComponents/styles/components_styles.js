@@ -63,17 +63,14 @@ const post_style = StyleSheet.create({
   }
 });
 
-const publish_style = StyleSheet.create({
+const post_input_style = StyleSheet.create({
   container:{
     position: 'absolute',
     alignSelf:'center',
     justifyContent: 'flex-end',
     bottom:0,
   },
-});
-
-const post_input_style = StyleSheet.create({
-  container: {
+  input: {
     backgroundColor: '#d0e8f2',
     margin: 10,
     borderRadius: 10,
@@ -89,4 +86,4 @@ const post_input_style = StyleSheet.create({
     padding:12
   },
 });
-export {input_style,button_style, post_style, publish_style,post_input_style};
+export {input_style,button_style, post_style,post_input_style};

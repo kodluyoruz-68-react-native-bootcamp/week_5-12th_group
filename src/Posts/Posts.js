@@ -10,7 +10,7 @@ import {
 import {Input,IconButton, SmallButton, PostInput} from '../globalComponents';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
-import { post_style, publish_style } from "../globalComponents/styles";
+import { post_style, post_input_style } from "../globalComponents/styles";
 
 
 function Posts(props) {
@@ -105,7 +105,7 @@ function Posts(props) {
         // TODO: Add a cooler empty list component
         ListEmptyComponent={<Text>No items</Text>}
       />
-      <View style = {publish_style.container}>
+      <View style = {post_input_style.container}>
         <PostInput
           buttonTitle="Post"
           placeholder="Make your thoughts heard..."
