@@ -7,12 +7,11 @@ import {
   ActivityIndicator,
   Button
 } from 'react-native';
-import {Input, SmallButton} from '../globalComponents';
+import {Input,IconButton} from '../globalComponents';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
-
 import { post_style } from "../globalComponents/styles";
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 
 function Posts(props) {
   const [posts, setPosts] = useState([]);
@@ -97,7 +96,7 @@ function Posts(props) {
               <Text style = {post_style.user_style}>{item["username"]}</Text>
               <Text style = {post_style.text_style}>{item["text"]}</Text>
               <Text style = {post_style.date_style}>{getDateString(item["time"])}</Text>
-              <Button title="Save" onPress={() => savePost(item)}/>
+              <IconButton style = {post_style.icon_style} icon = 'save' onPress={() => savePost(item)} />
             </View>
           );
         }}
@@ -110,7 +109,9 @@ function Posts(props) {
         onText={(postText) => setCurrentPost(postText)}
         currentColor="#0000"
       />
-      <SmallButton buttonTitle="Publish" onSelect={handlePostingRequest} />
+      <IconButton icon = 'play' onSelect={handlePostingRequest} />
+        
+      
     </SafeAreaView>
   );
 }

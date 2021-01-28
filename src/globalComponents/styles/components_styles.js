@@ -55,6 +55,9 @@ const post_style = StyleSheet.create({
   date_style:{
     fontSize:10,
     padding:10,
+  },
+  icon_style:{
+    color:'red'
   }
 });
 
