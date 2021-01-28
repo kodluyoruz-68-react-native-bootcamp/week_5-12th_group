@@ -63,4 +63,12 @@ const post_style = StyleSheet.create({
   }
 });
 
-export {input_style,button_style, post_style};
+const publish_style = StyleSheet.create({
+  container:{
+    position: 'absolute',
+    alignSelf:'center',
+    justifyContent: 'flex-end',
+    bottom: 0,
+  },
+});
+export {input_style,button_style, post_style, publish_style};

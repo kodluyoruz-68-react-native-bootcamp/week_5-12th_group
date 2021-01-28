@@ -7,10 +7,10 @@ import {
   ActivityIndicator,
   Button
 } from 'react-native';
-import {Input,IconButton} from '../globalComponents';
+import {Input,IconButton, SmallButton} from '../globalComponents';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
-import { post_style } from "../globalComponents/styles";
+import { post_style, publish_style } from "../globalComponents/styles";
 
 
 function Posts(props) {
@@ -105,14 +105,15 @@ function Posts(props) {
         // TODO: Add a cooler empty list component
         ListEmptyComponent={<Text>No items</Text>}
       />
-      <Input
-        buttonTitle="Post"
-        placeholder="Make your thoughts heard..."
-        onText={(postText) => setCurrentPost(postText)}
-        currentColor="#0000"
-      />
-      <IconButton icon = 'play' onSelect={handlePostingRequest} />
-        
+      <View style = {publish_style.container}>
+        <Input
+          buttonTitle="Post"
+          placeholder="Make your thoughts heard..."
+          onText={(postText) => setCurrentPost(postText)}
+          currentColor="#0000"
+        />
+        <SmallButton buttonTitle = 'publish' onSelect={handlePostingRequest} />
+      </View>  
       
     </SafeAreaView>
   );
