@@ -38,7 +38,24 @@ const input_style = StyleSheet.create({
 });
 
 const post_style = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: "#fcf8ec",
+    padding:10,
+    margin: 10,
+    borderRadius:10.
+  },
+  user_style:{
+    borderBottomWidth:1,
+    borderBottomColor:'#456268',
+    padding:5
+  },
+  text_style:{
+    padding:10,
+  },
+  date_style:{
+    fontSize:10,
+    padding:10,
+  }
 });
 
 export {input_style,button_style, post_style};
