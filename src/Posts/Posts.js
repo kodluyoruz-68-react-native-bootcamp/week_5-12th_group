@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   Button
 } from 'react-native';
-import {Input,IconButton, SmallButton, PostInput} from '../globalComponents';
+import {IconButton, PostInput} from '../globalComponents';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 import { post_style, post_input_style } from "../globalComponents/styles";
