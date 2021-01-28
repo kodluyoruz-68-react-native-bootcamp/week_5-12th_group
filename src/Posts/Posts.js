@@ -95,8 +95,10 @@ function Posts(props) {
             <View style = {post_style.container}>
               <Text style = {post_style.user_style}>{item["username"]}</Text>
               <Text style = {post_style.text_style}>{item["text"]}</Text>
-              <Text style = {post_style.date_style}>{getDateString(item["time"])}</Text>
-              <IconButton style = {post_style.icon_style} icon = 'save' onPress={() => savePost(item)} />
+              <View style = {{flexDirection:'row',justifyContent:'space-between'}}>
+                <Text style = {post_style.date_style}>{getDateString(item["time"])}</Text>
+                <IconButton style = {post_style.icon_style} icon = 'save' onPress={() => savePost(item)} />
+              </View>    
             </View>
           );
         }}

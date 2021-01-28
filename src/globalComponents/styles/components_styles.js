@@ -42,7 +42,8 @@ const post_style = StyleSheet.create({
     backgroundColor: "#fcf8ec",
     padding:10,
     margin: 10,
-    borderRadius:10.
+    borderRadius:10,
+    
   },
   user_style:{
     borderBottomWidth:1,
@@ -57,7 +58,8 @@ const post_style = StyleSheet.create({
     padding:10,
   },
   icon_style:{
-    color:'red'
+    color:'#79a3b1',
+    fontSize:25
   }
 });
 
