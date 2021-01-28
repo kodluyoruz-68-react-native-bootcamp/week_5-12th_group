@@ -10,6 +10,7 @@ import {
 import {Input, SmallButton} from '../globalComponents';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
+import { post_style } from '../globalComponents/styles';
 
 function SavedPosts({navigation}) {
   const [posts, setPosts] = useState([]);
@@ -40,17 +41,17 @@ function SavedPosts({navigation}) {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style = {{backgroundColor: '#79a3b1', flex:1}}>
       <SmallButton buttonTitle="Logout" onSelect={handleLogoutRequest} />
       <FlatList
         keyExtractor={(item, index) => index.toString()}
         data={posts}
         renderItem={({item}) => {
           return (
-            <View>
-              <Text>Date: {getDateString(item['time'])}</Text>
-              <Text>User: {item['username']}</Text>
-              <Text>Text: {item['text']}</Text>
+            <View style = {post_style.container}>
+              <Text style = {post_style.user_style}>{item['username']}</Text>
+              <Text style = {post_style.text_style}>{item['text']}</Text>
+              <Text style = {post_style.date_style}>{getDateString(item['time'])}</Text>
             </View>
           );
         }}
