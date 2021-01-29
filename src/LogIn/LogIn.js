@@ -38,12 +38,24 @@ function LogIn({navigation}) {
       passwordValid;
     if (conditions) {
       login(email, password);
-    } else {
+    } else if(email.length === 0 || password.length === 0) {
       //TODO: add something that indicates invalid fields
       console.log('Invalid fields');
+      if (email.length === 0) {
+        emptyField()
+      }
+      if (password.length === 0) {
+        emptyField()
+      }
     }
   }
 
+  function emptyField(params) {
+    return(
+      console.log("empty field")
+    )
+  }
+  
   if (loading) {
     //TODO: maybe improve ActivityIndicator
     return (

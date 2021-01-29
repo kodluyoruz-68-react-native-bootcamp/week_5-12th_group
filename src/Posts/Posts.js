@@ -15,7 +15,7 @@ import { post_style, post_input_style } from "../globalComponents/styles";
 
 function Posts(props) {
   const [posts, setPosts] = useState([]);
-  const [currentPost, setCurrentPost] = useState('');
+  const [currentPost, setCurrentPost] = useState(1);
   const [currentUsername, setCurrentUsername] = useState('Anonymous');
 
   useEffect(() => {
@@ -72,7 +72,8 @@ function Posts(props) {
 
   function handlePostingRequest() {
     if (!currentPost.length) {
-      //TODO: indicate that post is empty
+      //TODO: indicate that post is empty  /done
+      setCurrentPost(0)
       return 0;
     }
     database()
@@ -110,7 +111,7 @@ function Posts(props) {
           buttonTitle="Post"
           placeholder="Make your thoughts heard..."
           onText={(postText) => setCurrentPost(postText)}
-          currentColor="#0000"
+          currentColor={currentPost ? '#0000' : 'red'}
           onSelect={handlePostingRequest}
         />
       </View>  
