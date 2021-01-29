@@ -36,7 +36,7 @@ function SavedPosts({navigation}) {
 
   function handleLogoutRequest() {
     auth().signOut().then(() => {
-      navigation.navigate('LogIn');
+      navigation.navigate('LogIn', {messageToPrint: ' '});
     });
   }
 

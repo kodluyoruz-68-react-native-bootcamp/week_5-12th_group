@@ -5,7 +5,7 @@ import auth from '@react-native-firebase/auth';
 import {useLogin} from '../hooks/useLogin';
 import {logIn_items} from '../styles/Login_styles';
 
-function LogIn({navigation}) {
+function LogIn({navigation, route}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailValid, setEmailValid] = useState(0);
@@ -43,7 +43,7 @@ function LogIn({navigation}) {
       Alert.alert(
         "EMPTY FIELD(S)!",
         "Don't leave empty fields"
-      )  
+      )
     }
   }
 
@@ -55,9 +55,8 @@ function LogIn({navigation}) {
       </SafeAreaView>
     );
   }
-  
+
   if (response) {
-    //TODO: send something to login page using params and tell the user that they are registered
     navigation.navigate('MainScreen');
   }
 
@@ -67,12 +66,14 @@ function LogIn({navigation}) {
     Alert.alert(
       "ERROR!",
       "Error has occured. Please try again..."
-    )  
+    )
   }
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={logIn_items.container}>
+        {(route.params?.messageToPrint) ?
+          <Text style={logIn_items.message}>{route.params?.messageToPrint}</Text> : null}
         <Input
           buttonTitle="Email Adress"
           placeholder="Enter Email Adress..."

@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, View, ScrollView, ActivityIndicator, Alert} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  ScrollView,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
 import {Input, SmallButton} from '../globalComponents';
 import {useRegister} from '../hooks/useRegister';
 import database from '@react-native-firebase/database';
@@ -66,16 +73,14 @@ function SignUp({navigation}) {
       register(email, password, name, surname);
     } else {
       //TODO: add something that indicates invalid fields /done
-      Alert.alert(
-        "EMPTY FIELD(S)!",
-        "Don't leave empty fields"
-      )  
+      Alert.alert('EMPTY FIELD(S)!', "Don't leave empty fields");
     }
   }
 
   if (response) {
     //TODO: send something to login page using params and tell the user that they are registered
-    navigation.navigate('LogIn');
+    let messageToPrint = 'Registered Sunccesfully 🎉' ;
+    navigation.navigate('LogIn', { messageToPrint });
   }
 
   if (loading) {
@@ -88,11 +93,12 @@ function SignUp({navigation}) {
   }
 
   if (error) {
-    //TODO: handle register error /done
-    Alert.alert(
-      "ERROR!",
-      "Error has occured. Please try again..."
-    )  
+    if (error.code.includes('email-already-in-use')) {
+      let messageToPrint = 'You are already registered 😅' ;
+      navigation.navigate('LogIn', {messageToPrint});
+    } else {
+      Alert.alert('Looks like an error has occured', error.message);
+    }
   }
 
   return (
