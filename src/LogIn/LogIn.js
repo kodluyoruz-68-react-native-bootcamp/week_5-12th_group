@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, View, StyleSheet, ActivityIndicator} from 'react-native';
+import {SafeAreaView, Text, View, StyleSheet, ActivityIndicator, Alert} from 'react-native';
 import {Input, SmallButton} from '../globalComponents';
 import auth from '@react-native-firebase/auth';
 import {useLogin} from '../hooks/useLogin';
@@ -38,15 +38,12 @@ function LogIn({navigation}) {
       passwordValid;
     if (conditions) {
       login(email, password);
-    } else if(email.length === 0 || password.length === 0) {
-      //TODO: add something that indicates invalid fields
-      console.log('Invalid fields');
-      if (email.length === 0) {
-        emptyField()
-      }
-      if (password.length === 0) {
-        emptyField()
-      }
+    } else{
+      //TODO: add something that indicates invalid fields /done
+      Alert.alert(
+        "EMPTY FIELD(S)!",
+        "Don't leave empty fields"
+      )  
     }
   }
 

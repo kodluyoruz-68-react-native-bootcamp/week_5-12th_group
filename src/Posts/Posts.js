@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   View,
   FlatList,
+  Alert,
   ActivityIndicator,
   Button
 } from 'react-native';
@@ -54,9 +55,13 @@ function Posts(props) {
           return;
         }
         if (hasProperty(Object.values(data), item["time"])) {
-          //TODO: indicate that the post is aleady saved
+          //TODO: indicate that the post is aleady saved / done
           console.log(Object.values(data));
           console.log("ALREADY SAVED!");
+          Alert.alert(
+            "ALREADY SAVED!",
+            "You can't save the same post twice"
+          )  
           alreadySaved = true;
         }
       }).then(

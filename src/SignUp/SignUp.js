@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, View, ScrollView, ActivityIndicator} from 'react-native';
+import {SafeAreaView, Text, View, ScrollView, ActivityIndicator, Alert} from 'react-native';
 import {Input, SmallButton} from '../globalComponents';
 import {useRegister} from '../hooks/useRegister';
 import database from '@react-native-firebase/database';
@@ -65,8 +65,11 @@ function SignUp({navigation}) {
     if (conditions) {
       register(email, password, name, surname);
     } else {
-      //TODO: add something that indicates invalid fields
-      console.log('Invalid fields');
+      //TODO: add something that indicates invalid fields /done
+      Alert.alert(
+        "EMPTY FIELD(S)!",
+        "Don't leave empty fields"
+      )  
     }
   }
 
