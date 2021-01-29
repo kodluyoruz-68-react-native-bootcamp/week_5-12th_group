@@ -88,8 +88,11 @@ function SignUp({navigation}) {
   }
 
   if (error) {
-    //TODO: handle register error
-    console.log(error.message);
+    //TODO: handle register error /done
+    Alert.alert(
+      "ERROR!",
+      "Error has occured. Please try again..."
+    )  
   }
 
   return (

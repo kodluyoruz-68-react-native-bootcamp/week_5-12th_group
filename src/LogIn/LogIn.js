@@ -47,12 +47,6 @@ function LogIn({navigation}) {
     }
   }
 
-  function emptyField(params) {
-    return(
-      console.log("empty field")
-    )
-  }
-  
   if (loading) {
     //TODO: maybe improve ActivityIndicator
     return (
@@ -69,8 +63,11 @@ function LogIn({navigation}) {
 
 
   if (error) {
-    //TODO: handle register error
-    console.log(error.message);
+    //TODO: handle register error /done
+    Alert.alert(
+      "ERROR!",
+      "Error has occured. Please try again..."
+    )  
   }
 
   return (
